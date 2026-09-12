@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Will You Date Me?</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      overflow: hidden;
+    }
+
+    .card {
+      text-align: center;
+      background: white;
+      padding: 45px 35px;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      width: min(90%, 500px);
+    }
+
+    h1 {
+      color: #e63963;
+      font-size: 2.3rem;
+    }
+
+    p {
+      color: #555;
+      font-size: 1.2rem;
+    }
+
+    .buttons {
+      position: relative;
+      height: 100px;
+      margin-top: 25px;
+    }
+
+    button {
+      border: none;
+      padding: 14px 28px;
+      margin: 10px;
+      border-radius: 30px;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    #yes {
+      background: #2ecc71;
+    }
+
+    #no {
+      background: #e74c3c;
+      position: absolute;
+    }
+
+    #message {
+      display: none;
+      margin-top: 25px;
+      color: #e63963;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h1>💖 I Have a Question 💖</h1>
+    <p>Will you date me?</p>
+
+    <div class="buttons">
+      <button id="yes">Yes 💕</button>
+      <button id="no">No 😢</button>
+    </div>
+
+    <div id="message">
+      Yay! 💞<br /><br />
+      111 1111 1111111
+    </div>
+  </div>
+
+  <script>
+    const noButton = document.getElementById("no");
+    const yesButton = document.getElementById("yes");
+    const message = document.getElementById("message");
+
+    function moveNoButton() {
+      const maxX = window.innerWidth - noButton.offsetWidth - 20;
+      const maxY = window.innerHeight - noButton.offsetHeight - 20;
+
+      noButton.style.left = Math.max(10, Math.random() * maxX) + "px";
+      noButton.style.top = Math.max(10, Math.random() * maxY) + "px";
+    }
+
+    noButton.addEventListener("mouseenter", moveNoButton);
+    noButton.addEventListener("touchstart", moveNoButton);
+
+    yesButton.addEventListener("click", () => {
+      message.style.display = "block";
+      yesButton.style.display = "none";
+      noButton.style.display = "none";
+    });
+  </script>
+</body>
+</html>
